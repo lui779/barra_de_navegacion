@@ -1,0 +1,207 @@
+* {
+  /*Para aplicar estilos globales*/
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif; /*Cambiar la fuente en todo el documento*/
+  padding: 90px 20px 0; /* Para añadir un espacio entre el contenido y el header arriba 90, izqder 20 y abajo 0px*/
+}
+
+.header {
+  /* Esta es la ventaja de ir asignándole la clase a cada elemento en html*/
+  background-color: coral;
+  height: 80px;
+  position: fixed; /*permite que el header se quede fijo arriba y no se pierda al hacerle scroll a la página*/
+  width: 100%; /*Para que la barra ocupe el 100% del ancho de la página*/
+  top: 0;
+  left: 0;
+}
+
+/*ahora añadiremos estilo a nuestra barra de navegación
+
+Lo ideal es que el logo quede del lado izquierdo y el menú en el derecho del header,
+esto lo logramos con el display: flex, con justify-content
+logramos que se separen (el logo y el menú) a ambos extremos del header
+Para centfrar un poco el contenido le damos un max-width: 992px
+margin: 0 auto */
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 992px;
+  margin: 0 auto;
+}
+
+/*Se crea la clase .nav-link para aplicar estilo a todos los
+enlaces de manera general*/
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* Ahora daremos estilo al logo
+font-size para el tamaño de la letra, font-weight: bold = negrita para que resalte,
+Padding arriba y abajo 0, izq-der  40px
+Para centrarlo en el eje vertical line-height 80px que es el mismo 
+tamaño del ancho del header */
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  padding: 0 40px;
+  line-height: 80px;
+}
+
+/*Ahora añadir estilo a la barra de navegación con la clase .nav-menu:
+ display:flex; para que los elementos queden horizontalmente (por defecto en row)
+margin-right: 40px; para que tenga la misma separación, (pero a la derecha)
+que el elemento logo
+list-style: none; para quitar los puntos que por defecto crea el ul a sus elementos*/
+
+.nav-menu {
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+}
+
+/* Ahora le damos estlo a cada elemento del menú que tienen la clase
+ nav-menu-item:
+ font-size 18px; margin: 0 arriba y abajo, 10px izq-der 
+ line-height: 80px; para centrarlo en el eje vertical tal cual como se
+ hizo con el logo
+ text-transform: uppercase; para que se pongan en mayúsculas
+ width: max-content; para que no recorte el contenido al hacer
+ la página más pequeña*/
+
+.nav-menu-item {
+  font-size: 18px;
+  margin: 0 10px;
+  line-height: 80px;
+  text-transform: uppercase;
+  width: max-content;
+}
+
+/*Para que al pasar el cursor por los elementos del menu se genere un sombreado
+a la clase .nav-menu-link, le asignamos
+la propiedad :hover { y el background-color: X de fondo
+para darle un poco de espaciado a la sombra tambien usamos el .nav-menu-link, le asignamos
+un padding: 8px  12px (arriba y abajo 8px / izqder 12px)
+para redondear los bordes del sombreado aplicamos un border-radius de 3px;
+Para que al pasar sobre el elemento haya una transición entre un sombreado y el otro
+transition: .5s
+La clase .nav-menu-link_active en este caso (desktop) va a dejar sombreado el Blog
+del menu porque se la aplicamos sólo a ese elemento en html - en el media query abajo para el caso
+mobile, le quitamos el sombreado permanente a Blog y le asignamos solo color a la palabra de 
+manera permanente */
+
+.nav-menu-link {
+  padding: 8px 12px;
+  border-radius: 3px;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link_active {
+  background-color: grey;
+  transition: 0.5s;
+}
+
+/*Para agregar el menu hamburguesa nos vamos a font awesome, copiamos el link dentro del head html
+volvemos a FA en la sección íconos y buscamos "el menú hamburguesa" que en realidad de llama BARS,
+se copia el html del icono hamburguesa, nos vamos al html y creamos un button con clase nav-toggle
+button.nav-toggle (preferible con el nav para identificar que está dentro de la barra de navegación),
+selecionamos la clase nav-toggle para darle estilo al menú hamburguesa color blanco, sin color de fondo,
+sin bordes, fuente 30px el mismo tamaño del logo
+line-height: 60px porque cuando el dispositivo está en modo navegador la línea de referencia Logo tiene 60px
+display:none porque no queremos que se vea cuando está en modo desktop*/
+
+.nav-toggle {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 30px;
+  padding: 0 20px;
+  line-height: 60px;
+  cursor: pointer;
+
+  display: none;
+}
+
+/* Creamos un media query  @media (max-width: 768px para dispositivos celulares
+Cuando el dispositivo tenga menos de 768px se le van a aplicar esos estilos
+por ejemplo: al body se le va a asignar un background color rojo para mobile y se
+le modifica el padding-top: a 70px
+Al header le cambiamos el heigth a 60px para que reduzca su tamaño en mobile
+Al logo le bajamos el font-size a 25px y el line-height a 60px
+Al menú se le cambia el flex-direction:  a column para que en mobile se muestre
+verticalmente, margin-rigth: 20px - background del menu en modo mobile - top 60px
+para que no quede montado sobre el header - width 100% para que ocupe todo el ancho - 
+Como no queda completamente centrado por el padding que añade el navegador a la izquierda
+se configura con padding: 20px arriba y abajo y 0; a los lados - cont...
+cursor:pointer activa "la manito" al pasar sobre el menú hamburguesa*/
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .header {
+    height: 60px;
+  }
+
+  .logo {
+    font-size: 25px;
+    padding: 0 20px;
+    line-height: 60px;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    background-color: black;
+    position: fixed;
+    left: 0;
+    top: 60px;
+    width: 100%;
+    padding: 20px 0;
+    height: calc(100% - 60px);
+    overflow-y: auto;
+
+    left: 100%;
+    transition: left 0.3s;
+  }
+  /* Cont... Hay casos en los que el contenido no hace scroll porque el dispositivo tiene 
+mucho zoom o es muy pequeño por X razón, para corregirlo le asignamos un heigth
+calc del 100% - el alto del header = heigth:calc(100%-60px) para que el menú
+ocupe el 100% del dispositivo y con overflow en el eje "Y" en auto, cuando se necesite 
+una barra de scroll se añadirá automáticamente*/
+  .nav-menu.nav-menu-item {
+    line-height: 70px;
+  }
+
+  .nav-menu-link:hover,
+  .nav-menu-link_active {
+    background: none;
+    color: aquamarine;
+  }
+  /* Al hover le quitamos el background gris y le asignamos el color aquamarine a la letra
+Adicionalmente, para resaltar el elemento que está seleccionado, creamos otra clase
+.nav-menu-link_active para que los elementos que tengan esta clase queden resaltados*/
+
+  button.nav-toggle {
+    display: block;
+  }
+  /*Display:block en la clase .nav-toggle dentro del media query mobile para que aparezca
+  el menú hamburguesa cuando se usa la página en estos dispositivos OJO NO ESTÁ FUNCIONANDO*/
+
+  .nav-menu_visible {
+    left: 0;
+  }
+
+  /*esta clase se la aplicaremos al ul nav-menu en html para que el menu deslice a la derecha */
+
+
+}

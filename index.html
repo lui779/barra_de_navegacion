@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barra de navegacion</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/9ddac75438.js" crossorigin="anonymous"></script>
+    <!--link de font awesome para usar el icono del menú hamburguesa-->
+  </head>
+  <body>
+    <header class="header">
+      <!--header.header atajo para crear el header con clase header, el "." determina el class-->
+      <nav class="nav">
+        <!--Crea barra de navegación-->
+        <a href="#" class="logo nav-link">Logo</a>
+        <!--Logo que va a posicionarse a la izq con texto Logo-->
+        <button class="nav-toggle" >          
+         <i class="fa-solid fa-bars"></i>
+        </button>
+          <!--Código copiado de FA, este es el ícono de menú hamburguesa-->
+        
+        <ul class="nav-menu">
+          <!--Crea el listado en el que van los elementos li-->
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link nav-menu-link_active">Blog</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Videos</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Sobre Mi</a>
+          </li>
+          <li class="nav-menu-item">
+            <a href="#" class="nav-menu-link nav-link">Contacto</a>
+          </li>
+          <!--li.nav-menu-item*4 Con este atajo se crean los *4 li class-->
+          <!--Adicionalmente después del 4, al atajo se le agrega el enlace "a" con la clase nav-menu-link -->
+          <!--li.nav-menu-item*4>a.nav-menu-link   así queda completo el atajo después ctr+space+enter
+        para ejecutar la instrucción, Se coloca # en el href porque no vamos a enlazar por el momento,
+            se agrega el "nav-link" dentro del "a" para crear otra clase que permita aplicar estilo a todos los enlaces
+
+        NOTA: Para asignar varias clases a un elemento, hay que escribir en el atributo class los nombres de 
+        todas las clases que se quieren aplicar, separados por espacios-->
+        </ul>
+      </nav>
+    </header>
+    <main>
+        <h1>Body</Body></h1>
+    </main>
+    <script src="js\index.js"></script>
+  </body>
+</html>
