@@ -49,6 +49,7 @@ Para centrarlo en el eje vertical line-height 80px que es el mismo
 tamaño del ancho del header */
 
 .logo {
+  display: flex;
   font-size: 30px;
   font-weight: bold;
   padding: 0 40px;
