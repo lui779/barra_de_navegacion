@@ -24,7 +24,7 @@ body {
 Lo ideal es que el logo quede del lado izquierdo y el menú en el derecho del header,
 esto lo logramos con el display: flex, con justify-content
 logramos que se separen (el logo y el menú) a ambos extremos del header
-Para centfrar un poco el contenido le damos un max-width: 992px
+Para centrar un poco el contenido le damos un max-width: 992px
 margin: 0 auto */
 
 .nav {
@@ -183,7 +183,7 @@ una barra de scroll se añadirá automáticamente*/
     line-height: 70px;
   }
 
-  .nav-menu-link:hover,
+  .nav-menu-link:hover,  /*Boton descargar mi cv*/
   .nav-menu-link_active {
     background: none;
     color: aquamarine;
